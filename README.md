@@ -30,4 +30,4 @@ Ezekkel érdemes végigvinni egy-két saját tanulóprojektet, mielőtt még kem
 |Gál Dániel|Den|daniel.gal@sch.bme.hu|
 |Czémán Barnabás|Cémi|barni2000@sch.bme.hu|
 |Márki-Zay Ferenc|Feri|ferencmarkizay@gmail.com|
-|Szabó Tamás|Szaki|[szaki](https://github.com/szakitom)|
+|Szabó Tamás|Szaki|[@szakitom](https://github.com/szakitom)|
