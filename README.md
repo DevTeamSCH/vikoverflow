@@ -27,7 +27,7 @@ Ezekkel érdemes végigvinni egy-két saját tanulóprojektet, mielőtt még kem
 ## Kontakt
 |Név|Becenév|Elérhetőség|
 |---|-------|-----|
-|Gál Dániel|Den|daniel.gal@sch.bme.hu|
+|Gál Dániel|Den|[@daendev](https://github.com/daendev)|
 |Czémán Barnabás|Cémi|[@barni2000](https://github.com/barni2000)|
-|Márki-Zay Ferenc|Feri|ferencmarkizay@gmail.com|
+|Márki-Zay Ferenc|Feri|[@ferencmarkizay](https://github.com/ferencmarkizay)|
 |Szabó Tamás|Szaki|[@szakitom](https://github.com/szakitom)|
