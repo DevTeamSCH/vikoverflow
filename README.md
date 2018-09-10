@@ -28,6 +28,6 @@ Ezekkel érdemes végigvinni egy-két saját tanulóprojektet, mielőtt még kem
 |Név|Becenév|Elérhetőség|
 |---|-------|-----|
 |Gál Dániel|Den|daniel.gal@sch.bme.hu|
-|Czémán Barnabás|Cémi|barni2000@sch.bme.hu|
+|Czémán Barnabás|Cémi|[@barni2000](https://github.com/barni2000)|
 |Márki-Zay Ferenc|Feri|ferencmarkizay@gmail.com|
 |Szabó Tamás|Szaki|[@szakitom](https://github.com/szakitom)|
