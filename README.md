@@ -25,9 +25,9 @@ Ezekkel érdemes végigvinni egy-két saját tanulóprojektet, mielőtt még kem
 
 (Am nem ilyen csúnya lesz, ez csak ahhoz kellett, hogy lássuk a feature-öket.)
 ## Kontakt
-|Név|Becenév|email|
+|Név|Becenév|Elérhetőség|
 |---|-------|-----|
-|Gál Dániel *(projvez)*|Den|daniel.gal@sch.bme.hu|
+|Gál Dániel|Den|daniel.gal@sch.bme.hu|
 |Czémán Barnabás|Cémi|barni2000@sch.bme.hu|
 |Márki-Zay Ferenc|Feri|ferencmarkizay@gmail.com|
-|Szabó Tamás|Szaki|szakkika@gmail.com|
+|Szabó Tamás|Szaki|[szaki](https://github.com/szakitom)|
