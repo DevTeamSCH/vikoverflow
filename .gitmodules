@@ -5,3 +5,4 @@
 [submodule "frontend"]
 	path = frontend
 	url = git@github.com:DevTeamSCH/vikoverflow-frontend.git
+	branch = master
