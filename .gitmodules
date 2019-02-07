@@ -2,3 +2,6 @@
 	path = backend
 	url = git@github.com:DevTeamSCH/vikoverflow-backend.git
 	branch = master
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:DevTeamSCH/vikoverflow-frontend.git
