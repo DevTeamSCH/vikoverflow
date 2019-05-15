@@ -1,33 +1,40 @@
 # VikOverflow
 StackOverflow-szerű kérdezz-felelek szolgáltatás VIK-eseknek.
+
+![vikoverflow_dash](https://user-images.githubusercontent.com/30264881/56472678-d59dba80-6461-11e9-9a21-767ba87f9856.png)
+
 ## Mi ez?
 Tanulás közben elakadtál, és nem tudsz továbblépni, mert nem vagy biztos valamiben. Mit csinálsz? Nyilván ráírsz az okos haverodra, és megkérdezed őt. Van ennél azonban egy sokkal jobb megoldás, amivel a reményvesztett évfolyamtársaidat is segítheted.
 Tedd fel a kérdésedet a VikOverflow-n, és egyenesen az évfolyamtársaidtól, vagy a felsőbbévesektől kapod meg a választ. A tag-elhető kérdések szűrhetők évfolyam, szak, tárgy, vagy akár tematika szerint, a keresés olyan egyszerű, mint magán a StackOverflow-n. Az elfogadott válaszaidért és a jó kérdéseidért pontokat kaphatsz, és Te lehetsz az évfolyam tanulmányi királya, aki mindneki félévét megmenti.
+
 ## Tervezett feature-ök
 * Alap StackOverflow funkciók
 * Ranglista
 * Oktatók bevonása a megbízhatóbb válaszokért
-## Merre tart a projekt?
-Először is kéne neki valami normális és hangzatos név, a VikOverflow csak a projekt neve, ezt értelemszerűen nem használhatjuk egy Schönherzes szolgáltatás neveként, meg amúgy béna és copycat szagú.
-Másodszor, a vázlatos tervezés már a nyár eleje óta folyamatban van, ami hátra van ezután, az a megvalósítás és a tesztelés. Ez egy viszonylag nagyobb hangvételű projekt, hiszen egy egész StackOverflow motort akarunk leimplementálni némi extrával. Ha úgy látod, hogy hosszú ideig aktívan tagja szeretnél lenni a körnek, nyugodtan csatlakozz!
+
+## Hogy halad a projekt?
+A név még nem végleges, ennél valami egyszerűbb, hangzatosabb, szabadabban felhasználható brand nevet kellene választanunk a szolgáltatásnak.
+
+A vázlatos tervezés 2018 nyarán kezdődött. Azóta a tesztekkel együtt üzemel egy alapfunkciókat (core) ellátó REST API (kérdés, válasz és comment CRUD). Jelenleg ennek a frontend-jén dolgozunk.
+
+Ez egy viszonylag nagyobb hangvételű projekt, hiszen egy egész StackOverflow motort akarunk leimplementálni némi extrával. Ha szeretnél csatlakozni a projekthez, lépj kapcsolatba a projektvezetővel.
+
+## Kontakt
+|Név|Becenév|Pozíció|Elérhetőség|
+|---|-------|-------|-----------|
+|Gál Dániel|Den|projektvezető|[@daendev](https://github.com/daendev)|
+|Márki-Zay Ferenc|Feri|fejlesztő|[@ferencmarkizay](https://github.com/ferencmarkizay)|
+|Chif Gergő|Chif|frontend felelős|[@chifgeri](https://github.com/chifgeri)|
+|Orova Márton|Marci|fejlesztő|[@martonorova](https://github.com/martonorova)
+|Prehoda Balázs|Balázs|fejlesztő|[@balazsprehoda](https://github.com/balazsprehoda)|
+|Bodor Máté|Bodor|fejlesztő|[@bmate771](https://github.com/bmate711)|
+|Czémán Barnabás|Cémi|fejlesztő|[@barni2000](https://github.com/barni2000)|
+
 ## Használt technológiák
 * [Django](https://www.djangoproject.com/)
 * [Django REST framework](http://www.django-rest-framework.org/)
 * [React](https://reactjs.org/)
+* [Redux](https://redux.js.org/)
 
-Ezekkel érdemes végigvinni egy-két saját tanulóprojektet, mielőtt még keményebben belevágsz a VikOverflow fejlesztésbe.
-## Néhány kép a vázlatos tervekről
-![browse](https://raw.githubusercontent.com/wiki/DevTeamSCH/vikoverflow/images/mockups/browse.PNG)
-
-![question](https://raw.githubusercontent.com/wiki/DevTeamSCH/vikoverflow/images/mockups/question.PNG)
-
-![subjects](https://raw.githubusercontent.com/wiki/DevTeamSCH/vikoverflow/images/mockups/subjects.PNG)
-
-(Am nem ilyen csúnya lesz, ez csak ahhoz kellett, hogy lássuk a feature-öket.)
-## Kontakt
-|Név|Becenév|Elérhetőség|
-|---|-------|-----|
-|Gál Dániel|Den|[@daendev](https://github.com/daendev)|
-|Czémán Barnabás|Cémi|[@barni2000](https://github.com/barni2000)|
-|Márki-Zay Ferenc|Feri|[@ferencmarkizay](https://github.com/ferencmarkizay)|
-|Szabó Tamás|Szaki|[@szakitom](https://github.com/szakitom)|
+## Mikor lesz kész?
+Bő 20 perc.
