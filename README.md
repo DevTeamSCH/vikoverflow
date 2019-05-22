@@ -1,40 +1,39 @@
 # VikOverflow
-StackOverflow-szerű kérdezz-felelek szolgáltatás VIK-eseknek.
 
-![vikoverflow_dash](https://user-images.githubusercontent.com/30264881/56472678-d59dba80-6461-11e9-9a21-767ba87f9856.png)
+## Dependencies
+* Docker (for Windows / MAC)
 
-## Mi ez?
-Tanulás közben elakadtál, és nem tudsz továbblépni, mert nem vagy biztos valamiben. Mit csinálsz? Nyilván ráírsz az okos haverodra, és megkérdezed őt. Van ennél azonban egy sokkal jobb megoldás, amivel a reményvesztett évfolyamtársaidat is segítheted.
-Tedd fel a kérdésedet a VikOverflow-n, és egyenesen az évfolyamtársaidtól, vagy a felsőbbévesektől kapod meg a választ. A tag-elhető kérdések szűrhetők évfolyam, szak, tárgy, vagy akár tematika szerint, a keresés olyan egyszerű, mint magán a StackOverflow-n. Az elfogadott válaszaidért és a jó kérdéseidért pontokat kaphatsz, és Te lehetsz az évfolyam tanulmányi királya, aki mindneki félévét megmenti.
 
-## Tervezett feature-ök
-* Alap StackOverflow funkciók
-* Ranglista
-* Oktatók bevonása a megbízhatóbb válaszokért
+You have to create a volume, where the database data will be stored (the name has to be vikoverflow-data).
+```
+docker volume create --name vikoverflow-data
+```
 
-## Hogy halad a projekt?
-A név még nem végleges, ennél valami egyszerűbb, hangzatosabb, szabadabban felhasználható brand nevet kellene választanunk a szolgáltatásnak.
+## Run
+```
+docker-compose up
+```
+This will build the images, if you run it for the first time. You can rebuild the image(s) if needed with `docker-compose build`.
 
-A vázlatos tervezés 2018 nyarán kezdődött. Azóta a tesztekkel együtt üzemel egy alapfunkciókat (core) ellátó REST API (kérdés, válasz és comment CRUD). Jelenleg ennek a frontend-jén dolgozunk.
+API can be accessed at http://localhost:8000
 
-Ez egy viszonylag nagyobb hangvételű projekt, hiszen egy egész StackOverflow motort akarunk leimplementálni némi extrával. Ha szeretnél csatlakozni a projekthez, lépj kapcsolatba a projektvezetővel.
+App can be viewed at http://localhost:3000
 
-## Kontakt
-|Név|Becenév|Pozíció|Elérhetőség|
+
+## Devs
+|Name|Nickname|Role|Contact|
 |---|-------|-------|-----------|
-|Gál Dániel|Den|projektvezető|[@daendev](https://github.com/daendev)|
-|Márki-Zay Ferenc|Feri|fejlesztő|[@ferencmarkizay](https://github.com/ferencmarkizay)|
-|Chif Gergő|Chif|frontend felelős|[@chifgeri](https://github.com/chifgeri)|
-|Orova Márton|Marci|fejlesztő|[@martonorova](https://github.com/martonorova)
-|Prehoda Balázs|Balázs|fejlesztő|[@balazsprehoda](https://github.com/balazsprehoda)|
-|Bodor Máté|Bodor|fejlesztő|[@bmate771](https://github.com/bmate711)|
-|Czémán Barnabás|Cémi|fejlesztő|[@barni2000](https://github.com/barni2000)|
+|Gál Dániel|Den|project leader|[@daendev](https://github.com/daendev)|
+|Márki-Zay Ferenc|Feri|developer|[@ferencmarkizay](https://github.com/ferencmarkizay)|
+|Chif Gergő|Chif|frontend leader|[@chifgeri](https://github.com/chifgeri)|
+|Orova Márton|Marci|developer|[@martonorova](https://github.com/martonorova)
+|Prehoda Balázs|Balázs|developer|[@balazsprehoda](https://github.com/balazsprehoda)|
+|Bodor Máté|Bodor|developer|[@bmate771](https://github.com/bmate711)|
+|Czémán Barnabás|Cémi|developer|[@barni2000](https://github.com/barni2000)|
 
-## Használt technológiák
+## Tech
 * [Django](https://www.djangoproject.com/)
 * [Django REST framework](http://www.django-rest-framework.org/)
 * [React](https://reactjs.org/)
 * [Redux](https://redux.js.org/)
-
-## Mikor lesz kész?
-Bő 20 perc.
+* [Docker](https://www.docker.com/)
