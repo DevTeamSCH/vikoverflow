@@ -1,0 +1,15 @@
+server {
+	location /api {
+		proxy_pass ${BACKEND_URL};
+		proxy_set_header Host $host;
+	}
+	
+	location /admin {
+		proxy_pass ${BACKEND_URL};
+		proxy_set_header Host $host;
+	}
+	
+	location / {
+		alias /usr/share/nginx/html;
+	}
+}
