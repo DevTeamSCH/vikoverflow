@@ -1,9 +1,15 @@
 services:
 - docker
+git:
+    submodules: false
 env:
   global:
     - REGISTRY_USER=ferencmarkizay
     - secure: prlmIZ/tqlGPaqxTZnZzKr7GkU3MpJtQR/NaNGa4r44ElxEdQVZC0SQjdg2h9XGS4ewp/RJoODRvPmW+XpFNQke5X1sprPzx4WB1GSo7P5VKESA+NE4vxPjUvHc8oZOvKsaFHQ219rzFk6qHcrIvdTL+z1+h9a4yiEGp8QYCcb3GLwM9CD/oeJu5xkA7SKwNifOYuESXhEBiE433vuxhRtPzTd9Wtsi6GfQP40x7wMyDWpMYbq4G5fhLxQSldhOid5yILofLcObYlsFKJWJDlIpld4l6PecpowIHliZ4Vd0cnEEIlG640oLNgJ4SO15cYxrRnKtazIt/f3dXQ5PKjSv5eqH4igeEdVtDuhBAr0qKKTVKotU8E0tvXVRDUfaPrs1PRGmpIw/XQxEnmSv5nzOU1fjLXfhztfILKYywmf6U91ecpIqTYSuhL56kvqjSC5VKWmHs+3rYJV/4Q5gfo0PJbe/qhXmw/s8J5kKp8HstAzkv1IA0Pe252OowhjSv+PIHrkFFLs06T5g9hjEfezb65c+HBq5Q1/pYFoQcDy89bQMiD2Da+zNzttyCG3qzFBmZhs03MbqawlLJEJjI4G/KXhPnxYGVT8FszM5qsy3cAHJOnsBKZgXmb21emoJtL8ZjoONlR75pAFxhsSyAQBZAmxn+UsT3iyzBk7seiFc=
+
+before_install:
+    - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+    - git submodule update --init --recursive
 
 script:
     - cp deployment/Dockerfile.backend backend
