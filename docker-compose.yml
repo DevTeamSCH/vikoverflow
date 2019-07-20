@@ -23,6 +23,7 @@ services:
     volumes:
       - ./frontend/src:/code/src
       - ./frontend/public:/code/public
+      - ./frontend/package.json:/code/package.json
     ports:
       - 3000:3000
   
