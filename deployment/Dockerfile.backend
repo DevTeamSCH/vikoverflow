@@ -12,7 +12,7 @@ RUN apk add --no-cache --virtual .deps build-base jpeg-dev zlib-dev graphviz-dev
     pip install pipenv gunicorn && \
     pipenv install --system --deploy --ignore-pipfile && \
 	apk del --no-cache .deps && \
-	apk add --no-cache libpq && \
+	apk add --no-cache libpq libjpeg zlib && \
 	mv example_config.yaml config.yaml
 	
 COPY ./src ./src
@@ -21,6 +21,9 @@ WORKDIR /usr/src/app/src
 
 # Copy static files to /usr/src/app/static
 RUN python manage.py collectstatic --noinput
+
+# Run check
+RUN python manage.py check
 
 EXPOSE 8000
 
