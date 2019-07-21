@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vikoverflow-backend-config
+  namespace: devteam-kszk-bme-hu
+  labels:
+    app: vikoverflow
+data:
+  config.yaml: |-
+    secret_key: ${SECRET_KEY}
+    authsch:
+      secret: ${AUTHSCH_SECRET}
+      client_id: ${AUTHSCH_CLIENT_ID}
+    debug: False
+    database:
+      user: ${POSTGRES_USER}
+      password: ${POSTGRES_PASSWORD}
+      host: vikoverflow-db
+      port: 5432
+      name: ${POSTGRES_DB}
+    allowed_users: ['*']
+    allowed_hosts: ['vikoverflow.dev.k8s.sch.bme.hu']

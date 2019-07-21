@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+  name: vikoverflow-ingress
+  namespace: devteam-kszk-bme-hu
+spec:
+  rules:
+  - host: vikoverflow.dev.k8s.sch.bme.hu
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: vikoverflow-frontend
+          servicePort: 80
+  tls:
+  - hosts:
+    - vikoverflow.dev.k8s.sch.bme.hu
+    secretName: cert-vikoverflow-test

@@ -1,0 +1,78 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: vikoverflow-backend
+  namespace: devteam-kszk-bme-hu
+  labels:
+    app: vikoverflow
+    component: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vikoverflow
+      component: backend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: vikoverflow
+        component: backend
+    spec:
+      containers:
+      - image: devteamsch/vikoverflow-backend
+        name: vikoverflow-backend
+        env:
+        - name: CONFIG_FILE
+          value: /etc/config/config.yaml
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+        - name: config-file
+          mountPath: /etc/config
+      initContainers:
+      - name: init-backend
+        image: ferencmarkizay/alpine-gettext
+        command: ['sh', '-c', 'envsubst < /etc/template/config.yaml > /etc/config/config.yaml']
+        env:
+        - name: SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: vikoverflow-backend-secrets
+              key: secretKey
+        - name: AUTHSCH_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: vikoverflow-backend-secrets
+              key: authschSecret
+        - name: AUTHSCH_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: vikoverflow-backend-secrets
+              key: authschClientId
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: vikoverflow-db-credentials
+              key: username
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: vikoverflow-db-credentials
+              key: password
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: vikoverflow-db-credentials
+              key: db
+        volumeMounts:
+        - name: config-file
+          mountPath: /etc/config
+        - name: config-template
+          mountPath: /etc/template
+      volumes:
+      - name: config-file
+      - name: config-template
+        configMap:
+          name: vikoverflow-backend-config

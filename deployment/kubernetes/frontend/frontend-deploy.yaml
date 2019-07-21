@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vikoverflow-frontend
+  namespace: devteam-kszk-bme-hu
+  labels:
+    app: vikoverflow
+    component: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vikoverflow
+      component: frontend
+  template:
+    metadata:
+      labels:
+        app: vikoverflow
+        component: frontend
+    spec:
+      containers:
+      - name: vikoverflow-frontend
+        image: devteamsch/vikoverflow-frontend
+        ports:
+        - containerPort: 80
+        env:
+        - name: BACKEND_URL
+          value: http://vikoverflow-backend:8000

@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: vikoverflow-migrate
+  namespace: devteam-kszk-bme-hu
+  labels:
+    app: vikoverflow
+spec:
+  template:
+    spec:
+      containers:
+      - name: vikoverflow-backend
+        image: devteamsch/vikoverflow-backend
+        command: ["python", "manage.py", "migrate"]
+      restartPolicy: Never
+  backoffLimit: 4

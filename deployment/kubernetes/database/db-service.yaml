@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vikoverflow-db
+  namespace: devteam-kszk-bme-hu
+  labels:
+    app: vikoverflow
+    component: database
+spec:
+  ports:
+  - name: vikoverflow-db
+    port: 5432
+    targetPort: 5432
+    protocol: TCP
+  selector:
+    app: vikoverflow
+    component: database
+  type: ClusterIP

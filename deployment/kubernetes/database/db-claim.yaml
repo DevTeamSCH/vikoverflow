@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+    name: vikoverflow-db-claim
+    namespace: devteam-kszk-bme-hu
+    labels:
+        app: vikoverflow
+spec:
+    accessModes:
+        - ReadWriteOnce
+    volumeMode: Filesystem
+    resources:
+        requests:
+            storage: 1Gi
