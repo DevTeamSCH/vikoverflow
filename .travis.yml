@@ -23,14 +23,14 @@ before_deploy:
 deploy:
   provider: script
   script:
-    docker tag vikoverflow-backend-deploy devteamsch/vikoverflow-backend:$TRAVIS_TAG &&
-    docker tag vikoverflow-backend-deploy devteamsch/vikoverflow-backend:latest &&
-    docker push devteamsch/vikoverflow-backend:$TRAVIS_TAG &&
-    docker push devteamsch/vikoverflow-backend:latest &&
-    docker tag vikoverflow-frontend-deploy devteamsch/vikoverflow-frontend:$TRAVIS_TAG &&
-    docker tag vikoverflow-frontend-deploy devteamsch/vikoverflow-frontend:latest &&
-    docker push devteamsch/vikoverflow-frontend:$TRAVIS_TAG &&
-    docker push devteamsch/vikoverflow-frontend:latest
+    docker tag vikoverflow-backend-deploy registry.k8s.sch.bme.hu/vikoverflow/vikoverflow-backend:$TRAVIS_TAG &&
+    docker tag vikoverflow-backend-deploy registry.k8s.sch.bme.hu/vikoverflow/vikoverflow-backend:latest &&
+    docker push registry.k8s.sch.bme.hu/vikoverflow/vikoverflow-backend:$TRAVIS_TAG &&
+    docker push registry.k8s.sch.bme.hu/vikoverflow/vikoverflow-backend:latest &&
+    docker tag vikoverflow-frontend-deploy registry.k8s.sch.bme.hu/vikoverflow/vikoverflow-frontend:$TRAVIS_TAG &&
+    docker tag vikoverflow-frontend-deploy registry.k8s.sch.bme.hu/vikoverflow/vikoverflow-frontend:latest &&
+    docker push registry.k8s.sch.bme.hu/vikoverflow/vikoverflow-frontend:$TRAVIS_TAG &&
+    docker push registry.k8s.sch.bme.hu/vikoverflow/vikoverflow-frontend:latest
   on:
     tags: true
 
