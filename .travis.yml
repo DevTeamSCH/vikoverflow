@@ -1,35 +1,39 @@
 services:
 - docker
 git:
-    submodules: false
+  submodules: false
 env:
   global:
-    - REGISTRY_USER=ferencmarkizay
-    - secure: "mcKpHd1IZzmEtj3jt1JjGdGJuLrWIas3eysuVeW24aSfn+ccl8Bxn4FfP5uNCylusYGrvFwzPCUdGP40JRRFYZKpz4sGJp4eLNEsCS1dHLEKgZL8+1IBjh7ymwGwpoX4ZXxfMzHxxtfc3C8/OlDAZs7THs5LIGrM54Aq8F9YhpbnSZb2H3WHP04hrYxYN4+y36Wl5QNs0m+jJPBBTDISj7r/TeQ/dGoOGTvyEHcZNyPfzJrnUR0cS9Mn7syxhPg6AM8xKakzsh5TESoMDn1VryjMsrGksBwxw7N0f94NdPhgZS+OwrSqrkU0OipPOTVntFnVCBcFgmy2GPqTVQIN7FOY1h5/sRdAB7LglgZzUVWePbhJxsAJrIJjSltj8HIm1rCUhkw8qJWXkwO+FNo0BEaycdmPQ2JXj//a+0aUMH0sILY1sNImNB86NzagZwQEpmREn/IDTc4O1V9dbJC7EpDyxN6wrPDr1xES1/1JoKQqlcbXf+ZI9Eh6REaL652KqAxdg0xRKek0ULz2CK4+h/Lfd8/IOMx5XzHHeOH6HMhqvaR0QmnG0CE3Po2Cr+iqMLK+EVnxWynEehlXd0kxAeewlllr1gAK0vJWT5KOEgf75ELAnTagNwwWrlPy4hCe9NTY0UBCy9J5NG34FbZdfI1fF2SUNm5AtTEgV1odtIg="
+    - REGISTRY_USER='robot$vikoverflow-robot'
+
 before_install:
-    - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
-    - git submodule update --init --recursive
+  - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+  - git submodule update --init --recursive
 
 script:
-    - cp deployment/Dockerfile.backend backend
-    - cp deployment/Dockerfile.frontend frontend
-    - cp deployment/vikoverflow.template frontend
-    - docker build -t vikoverflow-backend-deploy -f backend/Dockerfile.backend backend
-    - docker build -t vikoverflow-frontend-deploy -f frontend/Dockerfile.frontend frontend
+  - cp deployment/Dockerfile.backend backend
+  - cp deployment/Dockerfile.frontend frontend
+  - cp deployment/vikoverflow.template frontend
+  - docker build -t vikoverflow-backend-deploy -f backend/Dockerfile.backend backend
+  - docker build -t vikoverflow-frontend-deploy -f frontend/Dockerfile.frontend frontend
 
 before_deploy:
-    - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
+  - docker login https://registry.k8s.sch.bme.hu -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
 
 deploy:
-    provider: script
-    script:
-        docker tag vikoverflow-backend-deploy devteamsch/vikoverflow-backend:$TRAVIS_TAG &&
-        docker tag vikoverflow-backend-deploy devteamsch/vikoverflow-backend:latest &&
-        docker push devteamsch/vikoverflow-backend:$TRAVIS_TAG &&
-        docker push devteamsch/vikoverflow-backend:latest &&
-        docker tag vikoverflow-frontend-deploy devteamsch/vikoverflow-frontend:$TRAVIS_TAG &&
-        docker tag vikoverflow-frontend-deploy devteamsch/vikoverflow-frontend:latest &&
-        docker push devteamsch/vikoverflow-frontend:$TRAVIS_TAG &&
-        docker push devteamsch/vikoverflow-frontend:latest
-    on:
-        tags: true
+  provider: script
+  script:
+    docker tag vikoverflow-backend-deploy devteamsch/vikoverflow-backend:$TRAVIS_TAG &&
+    docker tag vikoverflow-backend-deploy devteamsch/vikoverflow-backend:latest &&
+    docker push devteamsch/vikoverflow-backend:$TRAVIS_TAG &&
+    docker push devteamsch/vikoverflow-backend:latest &&
+    docker tag vikoverflow-frontend-deploy devteamsch/vikoverflow-frontend:$TRAVIS_TAG &&
+    docker tag vikoverflow-frontend-deploy devteamsch/vikoverflow-frontend:latest &&
+    docker push devteamsch/vikoverflow-frontend:$TRAVIS_TAG &&
+    docker push devteamsch/vikoverflow-frontend:latest
+  on:
+    tags: true
+
+after_deploy:
+  - curl -d '{"version":"$TRAVIS_TAG", "token":"$FRONTEND_TOKEN"}' -H "Content-Type: application/json" -X POST devteam-updater.dev.k8s.sch.bme.hu
+  - curl -d '{"version":"$TRAVIS_TAG", "token":"$BACKEND_TOKEN"}' -H "Content-Type: application/json" -X POST devteam-updater.dev.k8s.sch.bme.hu
