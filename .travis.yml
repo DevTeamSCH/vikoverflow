@@ -35,5 +35,5 @@ deploy:
     tags: true
 
 after_deploy:
-  - "curl -d '{\"version\":\"$'TRAVIS_TAG'\", \"token\":\"'$FRONTEND_TOKEN'\"}' -H \"Content-Type: application/json\" -X POST devteam-updater.dev.k8s.sch.bme.hu"
+  - "curl -d '{\"version\":\"'$TRAVIS_TAG'\", \"token\":\"'$FRONTEND_TOKEN'\"}' -H \"Content-Type: application/json\" -X POST devteam-updater.dev.k8s.sch.bme.hu"
   - "curl -d '{\"version\":\"'$TRAVIS_TAG'\", \"token\":\"'$BACKEND_TOKEN'\"}' -H \"Content-Type: application/json\" -X POST devteam-updater.dev.k8s.sch.bme.hu"
