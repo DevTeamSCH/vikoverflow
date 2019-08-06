@@ -15,7 +15,7 @@ script:
   - cp deployment/Dockerfile.frontend frontend
   - cp deployment/vikoverflow.template frontend
   - docker build -t vikoverflow-backend-deploy -f backend/Dockerfile.backend backend
-  - docker build -t vikoverflow-frontend-deploy -f frontend/Dockerfile.frontend frontend
+  - docker build -t vikoverflow-frontend-deploy --build-arg version=$TRAVIS_TAG -f frontend/Dockerfile.frontend frontend
 
 before_deploy:
   - docker login https://registry.k8s.sch.bme.hu -u "$REGISTRY_USER" -p "$REGISTRY_PASS"

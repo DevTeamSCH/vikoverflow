@@ -1,11 +1,15 @@
 FROM node:8.15-alpine AS build
 
+ARG version=0.0.0
+
 WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 RUN yarn
 
 COPY src ./src
 COPY public ./public
+
+RUN echo "export const APP_VERSION = '$version';" > src/version.js
 RUN yarn run build
 
 
