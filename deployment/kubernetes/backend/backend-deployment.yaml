@@ -8,6 +8,7 @@ metadata:
     component: backend
 spec:
   replicas: 1
+  revisionHistoryLimit: 0
   selector:
     matchLabels:
       app: vikoverflow
@@ -21,7 +22,8 @@ spec:
         component: backend
     spec:
       containers:
-      - image: devteamsch/vikoverflow-backend
+      - image: devteamsch/vikoverflow-backend:0.0.5
+        imagePullPolicy: Always
         name: vikoverflow-backend
         env:
         - name: CONFIG_FILE
