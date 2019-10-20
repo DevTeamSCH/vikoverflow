@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: vikoverflow-database
-        image: postgres:alpine
+        image: postgres:11-alpine
         ports:
         - containerPort: 5432
         env:
