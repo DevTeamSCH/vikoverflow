@@ -9,8 +9,9 @@ services:
       - "5432:5432"
 
   backend:
-    build: ./backend
-    command: python src/manage.py runserver 0.0.0.0:8000
+    build:
+      context: backend
+      dockerfile: Dockerfile.dev
     volumes:
       - ./backend:/code
     ports:
