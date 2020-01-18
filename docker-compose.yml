@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   db:
@@ -20,14 +20,13 @@ services:
       - db
 
   frontend:
-    build: ./frontend
+    build:
+      context: frontend
+      dockerfile: Dockerfile.dev
     volumes:
-      - ./frontend/src:/code/src
-      - ./frontend/public:/code/public
-      - ./frontend/package.json:/code/package.json
-    ports:
-      - 3000:3000
-  
+      - /app/node_modules
+      - ./frontend:/app
+
   proxy:
     image: nginx:alpine
     volumes:
