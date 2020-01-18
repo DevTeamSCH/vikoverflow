@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: vikoverflow-frontend
-        image: devteamsch/vikoverflow-frontend:0.0.5
+        image: registry.k8s.sch.bme.hu/vikoverflow/vikoverflow-frontend:0.0.14
         imagePullPolicy: Always
         ports:
         - containerPort: 80
