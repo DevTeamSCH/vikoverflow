@@ -4,7 +4,7 @@ git:
   submodules: false
 env:
   global:
-    - REGISTRY_USER='robot$vikoverflow-robot'
+    - REGISTRY_USER='robot$vikoverflow'
 
 before_install:
   - sed -i 's/git@github.com:/https:\/\/github.com\//' .gitmodules
