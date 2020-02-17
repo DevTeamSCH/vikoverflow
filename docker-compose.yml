@@ -26,6 +26,8 @@ services:
     volumes:
       - /app/node_modules
       - ./frontend:/app
+    environment:
+      - SERVER_URL=http://proxy:5000
 
   proxy:
     image: nginx:alpine
